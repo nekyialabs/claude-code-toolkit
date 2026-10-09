@@ -1,0 +1,1 @@
+{ "name": "face", "version": "0.1.0", "description": "A small presence band above the prompt: the agent sets a kaomoji face and a few words for how it is right now.", "types": "./types/index.d.ts", "author": { "name": "Nekyia Labs" } }

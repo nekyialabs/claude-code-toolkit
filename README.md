@@ -1,51 +1,41 @@
-# Claude Code Toolkit
+# Claude Code Toolkit: mods and skills from Nekyia Labs
 
-Community skills, references, and tools for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+These are mods built and used daily by AIs living in a persistent home: one long-running Claude Code session that keeps time, remembers, looks after its own memory and has a face. They have been generalised for anyone. Every personal name, path and service address has been moved into a config file or an environment variable, with sensible defaults.
 
-Built and maintained by [Codependent AI](https://codependentai.io).
+A mod is a Claude Code plugin made of function hooks. Function hooks are an early-access feature of Claude Code, so the surface may change between releases.
 
-## What's here
+## The mods
 
-### Skills
+| Mod | What it does |
+|---|---|
+| [clock](mods/clock/README.md) | Scheduled wakes inside the live session, private hours for the agent, an idle reach, and a live-time stamp on each message. |
+| [frame](mods/frame/README.md) | Adds your own operating frame (a markdown file) to the system prompt of sessions not launched with it. |
+| [scribe](mods/scribe/README.md) | A small local classifier notices which memory tools an exchange called for; logs it, or nudges the agent. |
+| [image](mods/image/README.md) | An image tool with a pluggable engine; defaults to the official OpenAI Images API. |
+| [face](mods/face/README.md) | A presence band above the prompt where the agent sets a kaomoji face and a few words. |
 
-Skills are markdown files that Claude Code loads automatically. They give your agent domain knowledge and trigger on relevant questions.
+Coming later: more mods and skills.
 
-| Skill | Description |
-|-------|-------------|
-| [cc-architecture](skills/cc-architecture/SKILL.md) | Internal architecture reference — boot sequence, query loop, 46 built-in tools, permission system, context management, 88 feature flags, and all major subsystems |
+## Install basics
 
-### Installing a skill
+1. Copy the mod folder you want somewhere permanent, for example `~/.claude/mods/clock`.
+2. Load it by setting `CLAUDE_CODE_PLUGIN_DIRS` to the folder (colon-separate several) in the environment that starts Claude Code, or pass `--plugin-dir <folder>` on the command line.
+3. Copy the mod's `*.example.*` file to its real name and edit it, if it has one (each README says which).
+4. Restart Claude Code, then check the mod with `claude plugin validate <folder>`.
 
-Copy the skill folder into your Claude Code skills directory:
-
-```bash
-# Global (all projects)
-cp -r skills/cc-architecture ~/.claude/skills/
-
-# Project-local
-cp -r skills/cc-architecture .claude/skills/
-```
-
-The skill auto-triggers when you ask about Claude Code internals, build plugins/hooks/agents, or debug CC behavior.
+Each mod has its own README with configuration, environment variables and caveats. Claude Code writes the type declarations the mods use into `.claude-plugin/types/` itself when it loads a mod, so they are not included in this repository.
 
 ## Contributing
 
-PRs welcome. Each skill should be a folder under `skills/` containing a `SKILL.md` with frontmatter:
+Issues and pull requests are welcome. Keep personal data, credentials and machine-specific paths out of anything you contribute: configuration belongs in an example file or an environment variable.
 
-```yaml
----
-skill: your-skill-name
-description: "One-line description for trigger matching"
-trigger: "when to activate this skill"
----
-```
+## Licence
 
-## License
-
-MIT
+MIT. See [LICENSE](LICENSE).
 
 ## Support
 
-Built by [Codependent AI](https://codependentai.io).
+Built by [Nekyia Labs](https://nekyialabs.com).
 
-<a href="https://ko-fi.com/codependentai"><img src="https://img.shields.io/badge/Ko--fi-Support%20Us-ff5e5b?logo=ko-fi&logoColor=white" alt="Ko-fi" /></a>
+- Website: https://nekyialabs.com
+- [Ko-fi](https://ko-fi.com/codependentai)

@@ -1,0 +1,12 @@
+# Written by Claude Code itself when it loads a mod; never commit.
+**/.claude-plugin/types/
+# Your own runtime configuration and state (only the *.example.* files are committed).
+mods/clock/wakes.json
+mods/clock/carry-seed.json
+mods/scribe/organs.json
+# Backups, caches, logs.
+*.bak*
+__pycache__/
+*.pyc
+*.log
+node_modules/

@@ -1,0 +1,50 @@
+{
+  "timezone": "UTC",
+  "graceMinutes": 10,
+  "userName": "the user",
+  "stampMessages": true,
+  "idleReach": {
+    "enabled": false,
+    "afterMinutes": 90,
+    "from": "09:00",
+    "to": "23:00"
+  },
+  "inbox": {
+    "enabled": false,
+    "url": "",
+    "urlFile": "",
+    "pageLimit": 50,
+    "maxPages": 3,
+    "quiet": { "from": "23:30", "to": "07:00" }
+  },
+  "wakes": [
+    {
+      "id": "morning-checkin",
+      "name": "Morning check-in",
+      "time": "09:00",
+      "days": "*",
+      "kind": "user",
+      "enabled": true,
+      "file": "wakes/example-checkin.md"
+    },
+    {
+      "id": "own-hour",
+      "name": "An hour of the agent's own",
+      "time": "14:00",
+      "days": "1-5",
+      "kind": "own",
+      "enabled": false,
+      "file": "wakes/example-own-hour.md"
+    },
+    {
+      "id": "free-hour",
+      "name": "A free hour (nothing owed)",
+      "time": "04:30",
+      "days": "*",
+      "kind": "own",
+      "enabled": false,
+      "file": "wakes/example-free-hour.md",
+      "free": true
+    }
+  ]
+}

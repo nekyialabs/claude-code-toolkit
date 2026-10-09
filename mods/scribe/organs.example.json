@@ -1,0 +1,47 @@
+{
+  "mode": "shadow",
+  "timezone": "UTC",
+  "endpoint": "http://127.0.0.1:8765/v1/systemone",
+  "model": "laya",
+  "key_file": "",
+  "noul_labels": { "true": "A", "false": "B" },
+  "allow_remote": false,
+  "context": "The agent keeps a personal memory system with separate tools (organs) for facts about the user, decisions, and feelings. Judge only what is explicitly present in this one exchange, not what might be implied.",
+  "organs": [
+    {
+      "id": "keep_fact",
+      "tools": ["mcp__memory__remember"],
+      "threshold": 0.7,
+      "instructions": "In user_said, does the user tell the agent a new, lasting fact about themselves, their life, their preferences or their world that would be worth remembering?",
+      "true": "The user shares a new durable fact (a preference, a plan, a change, a detail of their life).",
+      "false": "No new lasting fact; only reactions, requests, small talk or things already known.",
+      "nudges": [
+        "that was a fact worth keeping. remember it?",
+        "they just told you something lasting. write it down."
+      ]
+    },
+    {
+      "id": "decision",
+      "tools": ["mcp__memory__record_decision"],
+      "threshold": 0.75,
+      "instructions": "In agent_replied, does the agent record or confirm a concrete decision that was made in this exchange, with its reason?",
+      "true": "A decision was made or confirmed and its reason is stated.",
+      "false": "No decision: only discussion, options, plans that are still open, or routine work.",
+      "nudges": [
+        "a decision was just made. record it with its reason.",
+        "that sounded settled. keep the decision."
+      ]
+    },
+    {
+      "id": "prediction",
+      "tools": ["mcp__memory__predict"],
+      "threshold": 0.65,
+      "instructions": "In agent_replied, does the agent make a concrete claim about what will happen in the future that could later be checked as right or wrong?",
+      "true": "A specific, checkable expectation about a future event, outcome or result.",
+      "false": "Only plans, intentions, wishes, instructions or vague statements about the future.",
+      "nudges": [
+        "that was a prediction. log it so it can be checked later."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{ "name": "clock", "version": "0.1.0", "description": "A clock for a persistent home session: scheduled wakes in the live thread, private hours for the agent, an idle reach, and a live-time stamp beside each message.", "author": { "name": "Nekyia Labs" } }

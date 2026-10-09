@@ -1,0 +1,1 @@
+{ "name": "image", "version": "0.1.0", "description": "An image tool for the agent: make or edit pictures through a pluggable engine (default: the official OpenAI Images API). Room to grow into video.", "author": { "name": "Nekyia Labs" } }

@@ -1,0 +1,1 @@
+{ "name": "frame", "version": "0.1.0", "description": "Adds your own operating frame (a markdown file) to the system prompt in sessions that were not launched with it.", "author": { "name": "Nekyia Labs" } }

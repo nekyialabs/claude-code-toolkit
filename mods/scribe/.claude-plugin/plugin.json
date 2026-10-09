@@ -1,0 +1,1 @@
+{ "name": "scribe", "version": "0.1.0", "description": "A scribe for your memory tools: a small classifier reads each exchange and notices which memory tools it called for. Shadow mode logs; whisper mode nudges. It never writes to memory itself.", "author": { "name": "Nekyia Labs" } }

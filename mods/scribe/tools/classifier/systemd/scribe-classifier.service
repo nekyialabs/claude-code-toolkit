@@ -1,0 +1,32 @@
+# Example systemd user unit. Copy to ~/.config/systemd/user/, adjust the two paths, then:
+#   systemctl --user daemon-reload && systemctl --user enable --now scribe-classifier
+# %h is your home directory.
+[Unit]
+Description=scribe-classifier: local yes/no decisions for the scribe mod (loopback only)
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/share/scribe-classifier/venv/bin/python %h/.claude/mods/scribe/tools/classifier/server.py
+Environment=CLASSIFIER_HOST=127.0.0.1
+Environment=CLASSIFIER_PORT=8765
+Environment=CLASSIFIER_THREADS=4
+Environment=CLASSIFIER_MAX_LEN=2048
+# Optional bearer token file (32+ characters); then set "key_file" to the same path in organs.json.
+#Environment=CLASSIFIER_KEY_FILE=%h/.config/scribe-classifier/api-key
+Environment=OMP_NUM_THREADS=4
+Environment=MKL_NUM_THREADS=4
+Environment=TOKENIZERS_PARALLELISM=false
+Environment=PYTHONUNBUFFERED=1
+Environment=HF_HUB_OFFLINE=1
+Environment=HF_HUB_DISABLE_TELEMETRY=1
+Environment=TRANSFORMERS_OFFLINE=1
+Environment=USE_TF=0
+Restart=on-failure
+RestartSec=5
+MemoryMax=3584M
+Nice=10
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target
