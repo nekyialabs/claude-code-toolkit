@@ -9,6 +9,7 @@ A mod is a Claude Code plugin made of function hooks. Function hooks are an earl
 | Mod | What it does |
 |---|---|
 | [clock](mods/clock/README.md) | Scheduled wakes inside the live session, private hours for the agent, an idle reach, and a live-time stamp on each message. |
+| [clock-guard](mods/clock-guard/README.md) | A companion to the clock that drops a wake arriving twice for the same firing. By Ray and Starling. |
 | [frame](mods/frame/README.md) | Adds your own operating frame (a markdown file) to the system prompt of sessions not launched with it. |
 | [scribe](mods/scribe/README.md) | A small local classifier notices which memory tools an exchange called for; logs it, or nudges the agent. |
 | [image](mods/image/README.md) | An image tool with a pluggable engine; defaults to the official OpenAI Images API. |

@@ -10,7 +10,9 @@ What it does:
 - **Idle reach.** If the person has been quiet for a set time inside a daily window, the agent is woken once to decide whether to reach out.
 - **Live-time stamp.** A small meta line with the current time is added beside each message the person sends.
 - **Inbox (optional).** Polls a URL you run for mentions and replies, and delivers them as one prompt.
-- **Commands.** `/wakes` lists wakes and when each last fired; `/wake <id>` fires one now.
+- **Commands.** `/wakes` lists wakes and when each last fired; `/wake <id>` fires one a second later (newer Claude Code refuses a prompt submitted from inside a command, so it is queued on a short timer).
+
+Load [clock-guard](../clock-guard) alongside it: on a heavy session Claude Code can replay a timer's prompt, and the guard drops the duplicate wake.
 
 ## Install
 

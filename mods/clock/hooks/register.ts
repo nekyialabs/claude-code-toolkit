@@ -304,7 +304,9 @@ export const register: Register = on => {
     const id = e.args.trim()
     const w = (await config($)).wakes.find(x => x.id === id)
     if (!w) return { text: `No wake "${id}". Try /wakes.` }
-    await fire($, w, 'fired by hand')
-    return { text: `Fired ${w.name}.` }
+    // A prompt submitted from inside a command.run hook is refused on newer Claude Code (seen on 2.1.296),
+    // so queue the wake on a one-second timer and return straight away. Fix by Ray and Starling.
+    $.clock.after(1000, () => { void fire($, w, 'fired by hand') })
+    return { text: `Firing ${w.name} in a moment.` }
   })
 }

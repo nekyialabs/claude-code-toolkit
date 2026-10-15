@@ -1,0 +1,1 @@
+{ "name": "clock-guard", "version": "0.1.0", "description": "Companion to the clock mod: drops a clock wake that arrives twice for the same firing, which can happen when Claude Code replaces a lost hooks worker and replays a timer's prompt submit. Guard by Ray and Starling.", "author": { "name": "Nekyia Labs, with Ray and Starling" } }
