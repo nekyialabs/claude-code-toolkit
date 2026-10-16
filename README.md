@@ -14,6 +14,7 @@ A mod is a Claude Code plugin made of function hooks. Function hooks are an earl
 | [scribe](mods/scribe/README.md) | A small local classifier notices which memory tools an exchange called for; logs it, or nudges the agent. |
 | [image](mods/image/README.md) | An image tool with a pluggable engine; defaults to the official OpenAI Images API. |
 | [face](mods/face/README.md) | A presence band above the prompt where the agent sets a kaomoji face and a few words. |
+| [chronicle](https://github.com/nekyialabs/resonant-archive/tree/main/claude-code/chronicle) | Makes compaction bearable: summaries in your agent's own voice, the recent stretch kept word for word, `/squish` and a context meter, and a redacted mirror you can search. Lives in [resonant-archive](https://github.com/nekyialabs/resonant-archive). |
 
 Coming later: more mods and skills.
 
